@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="t1" class="com.iot.spring.Test"/>
+	
+	<bean id="t2" class="com.iot.spring.Test">
+		<property name="testStr" value="dkdk"/>
+	</bean>
+	
+	<bean id="t3" class="com.iot.spring.testtwofour.Test2">
+		<property name="testStr1">
+		<list>
+		<value>test1</value>
+		<value>test2</value>
+		</list>
+		</property>
+	</bean>
+	<bean id="m" class="com.iot.spring.dev.Mon">
+		<property name="money" value="1000000"></property>
+	</bean>
+	
+	<bean id="m2" class="com.iot.spring.dev.Mon"/>
+	<bean id="c" class="com.iot.spring.dev.Kia">
+		<constructor-arg value="소나타"></constructor-arg>
+		<property name="money">
+			<ref bean="m"/>
+		</property>
+		</bean>
+		
+		<bean id="c2" class="com.iot.spring.dev.Kia">
+		<constructor-arg>
+			<ref bean="m"/>
+		</constructor-arg>
+	</bean>
+	
+			<bean id="c3" class="com.iot.spring.dev.Kia">
+		<constructor-arg value="소나타"></constructor-arg>
+		<constructor-arg>
+			<ref bean="m"/>
+		</constructor-arg>
+	</bean>
+	</beans>

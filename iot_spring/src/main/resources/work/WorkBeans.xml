@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<bean id="ex" class="com.iot.spring.work.Excute">
+		<constructor-arg ref="dev"></constructor-arg> <!-- 기본생성자에 파라메터!! -->
+		<property name="worker"> <!--함수 set!  -->
+			<ref bean="dev" />
+		</property>
+	</bean>
+
+	<bean id="print" class="com.iot.spring.work.PrintWorker">
+		<constructor-arg ref="dev"></constructor-arg> 
+	</bean>
+
+	<bean id="print2" class="com.iot.spring.work.PrintWorker">
+		<property name="worker">
+			<ref bean="dev"/>
+		</property>
+	</bean>
+
+	<bean id="dev" class="com.iot.spring.work.Developer" />
+	<bean id="des" class="com.iot.spring.work.Designer" />
+</beans>
